@@ -1,6 +1,6 @@
-package com.example.telem.repository;
+package com.example.padrao.repository;
 
-import com.example.telem.model.Orgao;
+import com.example.padrao.model.Orgao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

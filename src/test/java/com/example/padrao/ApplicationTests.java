@@ -1,4 +1,4 @@
-package com.example.telem;
+package com.example.padrao;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

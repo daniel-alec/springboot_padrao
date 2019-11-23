@@ -1,4 +1,4 @@
-package com.example.telem.model;
+package com.example.padrao.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

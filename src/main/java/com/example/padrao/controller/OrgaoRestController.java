@@ -1,8 +1,8 @@
-package com.example.telem.controller;
+package com.example.padrao.controller;
 
-import com.example.telem.exception.ResourceNotFoundException;
-import com.example.telem.model.Orgao;
-import com.example.telem.repository.OrgaoRepository;
+import com.example.padrao.exception.ResourceNotFoundException;
+import com.example.padrao.model.Orgao;
+import com.example.padrao.repository.OrgaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
