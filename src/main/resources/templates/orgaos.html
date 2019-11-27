@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orgãos</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css">
+</head>
+
+<body>
+
+<!--Example from: https://attacomsian.com/blog/spring-boot-thymeleaf-pagination-->
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="orgao : ${orgaos}">
+        <td th:text="${orgao.id}"></td>
+        <td th:text="${orgao.nome}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- orgaos pagination -->
+<nav aria-label="Pagination" th:if="${orgaos.totalPages gt 0}">
+    <ul class="pagination justify-content-center font-weight-medium">
+        <li class="page-item" th:classappend="${orgaos.number eq 0} ? 'disabled'">
+            <a class="page-link svg-icon"
+               th:href="@{/orgaos?page={id}(id=${orgaos.number lt 2 ? 1 : orgaos.number})}"
+               aria-label="Previous"
+               title="Previous Page" rel="tooltip">
+                <span aria-hidden="true" data-feather="chevrons-left" width="20" height="20">&laquo;</span>
+<!--                <i aria-hidden="true" data-feather="chevrons-left" width="20" height="20" class="fas fa-chevron-left"></i>-->
+            </a>
+        </li>
+        <li class="page-item" th:classappend="${i eq orgaos.number + 1} ? 'active'"
+            th:each="i : ${#numbers.sequence( orgaos.number, orgaos.totalPages > 5 + orgaos.number ? orgaos.number + 5 : orgaos.totalPages, 1)}">
+            <a th:if="${i > 0}" class="page-link" th:href="@{/orgaos?page={id}(id=${i})}" th:text="${i}"
+               th:title="${'Page '+ i}"
+               rel="tooltip"></a>
+        </li>
+        <li class="page-item disabled" th:if="${orgaos.number + 5 < orgaos.totalPages}">
+            <a class="page-link svg-icon" href="#">
+                <span data-feather="more-horizontal" width="20" height="20"></span>
+            </a>
+        </li>
+        <li class="page-item" th:classappend="${orgaos.number + 1 eq orgaos.totalPages} ? 'disabled'">
+            <a class="page-link svg-icon" th:href="@{/orgaos?page={id}(id=${orgaos.number + 2})}"
+               aria-label="Next"
+               title="Next Page" rel="tooltip">
+                <span aria-hidden="true" data-feather="chevrons-right" width="20" height="20">&raquo;</span>
+<!--                <i aria-hidden="true" data-feather="chevrons-right" width="20" height="20" class="fa fa-chevron-right"></i>-->
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<!-- orgaos pagination -->
+<!--<nav aria-label="Pagination" th:if="${orgaos.totalPages gt 0}">-->
+<!--    <ul class="pagination justify-content-center font-weight-bold">-->
+<!--        <li class="page-item" th:classappend="${orgaos.number eq 0} ? 'disabled'">-->
+<!--            <a class="page-link"-->
+<!--               th:href="@{/orgaos?page={id}(id=${orgaos.number lt 2 ? 1 : orgaos.number})}"-->
+<!--               aria-label="Previous" title="Previous Page" data-toggle="tooltip">-->
+<!--                <span aria-hidden="true">&laquo;</span>-->
+<!--            </a>-->
+<!--        </li>-->
+<!--        <li class="page-item" th:classappend="${i eq orgaos.number + 1} ? 'active'"-->
+<!--            th:each="i : ${#numbers.sequence( 1, orgaos.totalPages, 1)}">-->
+<!--            <a class="page-link" th:href="@{/orgaos?page={id}(id=${i})}" th:text="${i}"-->
+<!--               th:title="${'Page '+ i}" data-toggle="tooltip"></a>-->
+<!--        </li>-->
+<!--        <li class="page-item" th:classappend="${orgaos.number + 1 eq orgaos.totalPages} ? 'disabled'">-->
+<!--            <a class="page-link"-->
+<!--               th:href="@{/orgaos?page={id}(id=${orgaos.number + 2})}"-->
+<!--               aria-label="Next" title="Next Page" data-toggle="tooltip">-->
+<!--                <span aria-hidden="true">&raquo;</span>-->
+<!--            </a>-->
+<!--        </li>-->
+<!--    </ul>-->
+<!--</nav>-->
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+</body>
+</html>
