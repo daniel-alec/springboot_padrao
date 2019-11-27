@@ -65,31 +65,6 @@
     </ul>
 </nav>
 
-<!-- orgaos pagination -->
-<!--<nav aria-label="Pagination" th:if="${orgaos.totalPages gt 0}">-->
-<!--    <ul class="pagination justify-content-center font-weight-bold">-->
-<!--        <li class="page-item" th:classappend="${orgaos.number eq 0} ? 'disabled'">-->
-<!--            <a class="page-link"-->
-<!--               th:href="@{/orgaos?page={id}(id=${orgaos.number lt 2 ? 1 : orgaos.number})}"-->
-<!--               aria-label="Previous" title="Previous Page" data-toggle="tooltip">-->
-<!--                <span aria-hidden="true">&laquo;</span>-->
-<!--            </a>-->
-<!--        </li>-->
-<!--        <li class="page-item" th:classappend="${i eq orgaos.number + 1} ? 'active'"-->
-<!--            th:each="i : ${#numbers.sequence( 1, orgaos.totalPages, 1)}">-->
-<!--            <a class="page-link" th:href="@{/orgaos?page={id}(id=${i})}" th:text="${i}"-->
-<!--               th:title="${'Page '+ i}" data-toggle="tooltip"></a>-->
-<!--        </li>-->
-<!--        <li class="page-item" th:classappend="${orgaos.number + 1 eq orgaos.totalPages} ? 'disabled'">-->
-<!--            <a class="page-link"-->
-<!--               th:href="@{/orgaos?page={id}(id=${orgaos.number + 2})}"-->
-<!--               aria-label="Next" title="Next Page" data-toggle="tooltip">-->
-<!--                <span aria-hidden="true">&raquo;</span>-->
-<!--            </a>-->
-<!--        </li>-->
-<!--    </ul>-->
-<!--</nav>-->
-
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
