@@ -1,11 +1,10 @@
+DROP TABLE IF EXISTS estacao;
 DROP TABLE IF EXISTS orgao;
 
 CREATE TABLE orgao (
      id        SERIAL PRIMARY KEY,
-     nome      UNIQUE VARCHAR(255) NOT NULL
+     nome      VARCHAR(255) UNIQUE NOT NULL
 );
-
-DROP TABLE IF EXISTS estacao;
 
 CREATE TABLE estacao (
      id         SERIAL PRIMARY KEY,

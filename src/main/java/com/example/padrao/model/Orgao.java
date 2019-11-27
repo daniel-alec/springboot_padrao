@@ -10,8 +10,8 @@ import javax.validation.constraints.Size;
 @Entity
 public class Orgao {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
     @NotBlank
     @Size(min = 3, max = 100)
@@ -20,7 +20,7 @@ public class Orgao {
     public Orgao() {
     }
 
-    public Orgao(Long id, String nome) {
+    public Orgao(Integer id, String nome) {
         this.id = id;
         this.nome = nome;
     }
@@ -33,11 +33,11 @@ public class Orgao {
         this.nome = nome;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
