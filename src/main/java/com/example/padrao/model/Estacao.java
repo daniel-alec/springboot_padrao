@@ -23,7 +23,7 @@ public class Estacao {
 
     private Double longitude;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "orgao_id")
     @JsonIgnore
     private Orgao orgao;
@@ -62,6 +62,7 @@ public class Estacao {
                 ", nome='" + nome + '\'' +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
+                ", orgao=" + orgao +
                 '}';
     }
 

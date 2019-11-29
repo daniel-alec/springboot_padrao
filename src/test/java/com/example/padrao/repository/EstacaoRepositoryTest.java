@@ -18,6 +18,8 @@ public class EstacaoRepositoryTest {
         // when
         Estacao estacao = estacaoRepository.findByNome("Curitiba");
 
+        System.out.println(estacao);
+
         // then
         assertThat(estacao.getNome()).isEqualTo("Curitiba");
     }
