@@ -1,9 +1,12 @@
 package com.example.padrao.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
+@Table(name = "orgao")
 public class Orgao {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -12,6 +15,10 @@ public class Orgao {
     @NotBlank(message = "Nome é obrigatório")
     @Column(name = "nome")
     private String nome;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Estacao estacao;
 
     public Orgao() {
     }
@@ -43,5 +50,13 @@ public class Orgao {
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 '}';
+    }
+
+    public Estacao getEstacao() {
+        return estacao;
+    }
+
+    public void setEstacao(Estacao estacao) {
+        this.estacao = estacao;
     }
 }
