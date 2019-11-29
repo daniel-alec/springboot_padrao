@@ -1,11 +1,7 @@
 package com.example.padrao.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 @Entity
 public class Orgao {
@@ -13,8 +9,8 @@ public class Orgao {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @NotBlank
-    @Size(min = 3, max = 100)
+    @NotBlank(message = "Nome é obrigatório")
+    @Column(name = "nome")
     private String nome;
 
     public Orgao() {

@@ -24,8 +24,8 @@ public class OrgaoRestController {
      * @return
      */
     @GetMapping("/orgaos")
-    public List<Orgao> getAllEmployees() {
-        return orgaoRepository.findAll();
+    public ResponseEntity<List<Orgao>> getAllEmployees() {
+        return ResponseEntity.ok(orgaoRepository.findAll());
     }
 
     /**
@@ -49,8 +49,8 @@ public class OrgaoRestController {
      * @return
      */
     @PostMapping("/orgaos")
-    public Orgao createEmployee(@Valid @RequestBody Orgao orgao) {
-        return orgaoRepository.save(orgao);
+    public ResponseEntity createEmployee(@Valid @RequestBody Orgao orgao) {
+        return ResponseEntity.ok(orgaoRepository.save(orgao));
     }
 
     /**
@@ -60,12 +60,12 @@ public class OrgaoRestController {
      * @return
      */
     @PutMapping("/orgaos/{orgaoId}")
-    public Orgao updateOrgao(@PathVariable Integer orgaoId,
+    public ResponseEntity<Orgao> updateOrgao(@PathVariable Integer orgaoId,
                              @Valid @RequestBody Orgao orgaoRequest) {
         return orgaoRepository.findById(orgaoId)
                 .map(orgao -> {
                     orgao.setNome(orgaoRequest.getNome());
-                    return orgaoRepository.save(orgao);
+                    return ResponseEntity.ok(orgaoRepository.save(orgao));
                 }).orElseThrow(() -> new ResourceNotFoundException("Orgao not found with id " + orgaoId));
     }
 
