@@ -1,6 +1,7 @@
 package com.example.padrao.controller;
 
 import com.example.padrao.repository.OrgaoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,11 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class OrgaoController {
-    private OrgaoRepository orgaoRepository;
 
-    public OrgaoController(OrgaoRepository orgaoRepository) {
-        this.orgaoRepository = orgaoRepository;
-    }
+    @Autowired
+    private OrgaoRepository orgaoRepository;
 
     @GetMapping("/orgaos")
     public String orgaosPage(HttpServletRequest request, Model model) {
