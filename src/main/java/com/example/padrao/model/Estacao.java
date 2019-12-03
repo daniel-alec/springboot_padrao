@@ -16,16 +16,15 @@ public class Estacao {
     @Column(name = "nome")
     private String nome;
 
-    @Column(
-            columnDefinition = "NUMERIC(19,0)"
-    )
+    @Column(columnDefinition = "NUMERIC(4,4)")
     private Double latitude;
 
+    @Column(columnDefinition = "NUMERIC(4,4)")
     private Double longitude;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "orgao_id")
-    @JsonIgnore
+//    @JsonIgnore
     private Orgao orgao;
 
     public Estacao() {
@@ -57,7 +56,7 @@ public class Estacao {
 
     @Override
     public String toString() {
-        return "Orgao{" +
+        return "Estacao{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", latitude=" + latitude +

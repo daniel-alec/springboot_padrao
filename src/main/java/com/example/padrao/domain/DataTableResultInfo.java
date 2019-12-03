@@ -6,18 +6,16 @@ import org.springframework.data.domain.Page;
 public class DataTableResultInfo {
 
     private Page<Estacao> data;
-    private int draw; //the NO.of requests
-    private int length;
+    private int draw;
     private long recordsTotal;
     private long recordsFiltered;
 
     public DataTableResultInfo() {
     }
 
-    public DataTableResultInfo(Page<Estacao> data, int draw, int length, long recordsTotal, long recordsFiltered) {
+    public DataTableResultInfo(Page<Estacao> data, int draw, long recordsTotal, long recordsFiltered) {
         this.data = data;
         this.draw = draw;
-        this.length = length;
         this.recordsTotal = recordsTotal;
         this.recordsFiltered = recordsFiltered;
     }
@@ -28,14 +26,6 @@ public class DataTableResultInfo {
 
     public void setDraw(int draw) {
         this.draw = draw;
-    }
-
-    public int getLength() {
-        return length;
-    }
-
-    public void setLength(int length) {
-        this.length = length;
     }
 
     public long getRecordsTotal() {

@@ -1,10 +1,18 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/main_layout}">
 <head>
-    <title>Default</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Estações</title>
 </head>
+
 <body>
+
+<main layout:fragment="content" role="main" class="container">
+
 <p>Welcome to <span th:text="${appName}">Our App</span></p>
+
+</main>
+
 </body>
 </html>

@@ -8,6 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @Controller
 public class OrgaoController {
@@ -30,6 +34,8 @@ public class OrgaoController {
         }
 
         model.addAttribute("orgaos", orgaoRepository.findAll(PageRequest.of(page, size)));
+
+        model.addAttribute("now", LocalDate.now());
 
         return "orgaos";
     }

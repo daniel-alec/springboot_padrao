@@ -15,13 +15,10 @@ public class EstacaoService {
     @Autowired
     EstacaoRepository estacaoRepository;
 
-    public Page<Estacao> getAllEstacoes(Integer pageNo, Integer pageSize, String sortBy)
-    {
-        System.out.println(pageNo + " " + pageSize + " " +sortBy.toString());
+    public Page<Estacao> getAllEstacoes(Integer pageNo, Integer pageSize, String sortBy) {
+
         Pageable pageable = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
         Page<Estacao> page = estacaoRepository.findAll(pageable);
-
-        System.out.println(page.toString());
 
         return page;
     }
