@@ -1,6 +1,6 @@
 package com.example.padrao.controller;
 
-import com.example.padrao.domain.DataTableResultInfo;
+import com.example.padrao.domain.DataTable;
 import com.example.padrao.model.Estacao;
 import com.example.padrao.service.EstacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Controller
 public class EstacaoController {
@@ -43,16 +42,17 @@ public class EstacaoController {
             System.out.println("Key" + (String)key + "   :   " + Arrays.toString(value));
         }
 
-        int pageNo = (start)/(length+1);
-        Page<Estacao> pageInfo = estacaoService.getAllEstacoes(pageNo, length, sortBy);
+        int page = start / length;
+        Page<Estacao> pageInfo = estacaoService.getAllEstacoes(page, length, sortBy);
 
-        DataTableResultInfo dataTableResultInfo = new DataTableResultInfo();
-        dataTableResultInfo.setData(pageInfo);
-        dataTableResultInfo.setDraw(draw);
-        dataTableResultInfo.setRecordsTotal(pageInfo.getNumberOfElements());
-        dataTableResultInfo.setRecordsFiltered(pageInfo.getNumberOfElements());
+        DataTable dataTable = new DataTable();
+        dataTable.setStart(start);
+        dataTable.setData(pageInfo.getContent());
+        dataTable.setDraw(draw);
+        dataTable.setRecordsTotal(pageInfo.getNumberOfElements());
+        dataTable.setRecordsFiltered(pageInfo.getNumberOfElements());
 
-        return ResponseEntity.ok(dataTableResultInfo);
+        return ResponseEntity.ok(dataTable);
     }
 
 }

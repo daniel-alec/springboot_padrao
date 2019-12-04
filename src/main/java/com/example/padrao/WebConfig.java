@@ -10,7 +10,6 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.example.padrao")
 public class WebConfig implements WebMvcConfigurer {
 
     // =======================================
@@ -33,14 +32,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/img/**")
-                .addResourceLocations("/WEB-INF/img/");
-
-        registry.addResourceHandler("/css/**")
-                .addResourceLocations("/WEB-INF/css/");
-
-        registry.addResourceHandler("/js/**")
-                .addResourceLocations("/WEB-INF/js/");
+        registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
     }
 
 }
