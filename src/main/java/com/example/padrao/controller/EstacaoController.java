@@ -39,7 +39,7 @@ public class EstacaoController {
         {
             String keyStr = (String)key;
             String[] value = (String[])map.get(keyStr);
-            System.out.println("Key" + (String)key + "   :   " + Arrays.toString(value));
+            System.out.println((String)key + "   :   " + Arrays.toString(value));
         }
 
         int page = start / length;
