@@ -1,6 +1,9 @@
 # springboot_padrao
 Spring Boot Padrão
 
+# RUN postgres(docker)
+docker start dev-postgres
+
 ## TESTS:
 
 ### Run all the unit test classes.
